@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>داروخانه آنلاین PO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="register.php">
+</head>
+<body>
+
+  <div class="container">
+  <div class="row">
+    <div class="col s12 m6 offset-m3">
+      <div class="card hoverable">
+        <div class="card-content grey-text text-lighten-1">
+          <div class="row card-title">
+            <div class="col s6 left-align login-link"><span>ورود</span></div>
+            <div class="col s6 right-align signup-link active"><span>عضو شوید</span></div>
+          </div>
+          <div class="row">
+            <div class="input-field email-field col s12">
+              <input id="email" type="email" class="validate white-text">
+              <label for="email" class="grey-text text-lighten-1">ایمیل</label>
+            </div>
+          </div>
+          <div class="row">
+            <form action="." class="col s12 password-form" autocomplete="nope">
+              <div class="row">
+                <div class="input-field password-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <span id="password-strength"></span>
+                  <label for="password">پسورد</label>
+                  <p class="help-text"></p>
+                </div>
+              </div>
+              <div class="row confirm-password-row">
+                <div class="input-field confirm-password-field col s12">
+                 <input id="confirm-password" type="password" class="validate">
+                 <label for="confirm-password">تایید پسورد</label>
+               </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card-action center-align">
+          <div class="row">
+            <a href="index.html" class="btn-login btn amber darken-4 waves-effect white-text">ورود</a>
+            
+          </div>
+          <div class="row forgot-password-row">
+            <span class="amber-text text-darken-4 waves-effect">پسوردتان را فراموش کردید ؟</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js'></script>
+    <script  src="js/index.js"></script>
+    <style>
+        *{
+  font-family: 'Markazi Text', serif !important;
+  direction: rtl;
+}
+html {
+  min-height: 100vh;
+}
+
+body {
+  background-image: url(https://images.unsplash.com/photo-1440558547120-1c1cae0397a1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&h=1200);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  font-size: 16px;
+  max-width: 1024px;
+  margin: 0 auto;
+  min-width: 280px;
+  padding-top: 70px;
+}
+
+.card,
+.card-content,
+.card-action {
+  background-color: rgba(255,255,255,0.03);
+  margin: 0;
+}
+
+.login-link span,
+.signup-link span {
+  padding-bottom: .25rem;
+  cursor: pointer;  
+}
+
+.login-link span:hover,
+.signup-link span:hover {
+  border-bottom: 2px solid #bdbdbd;
+}
+
+.login-link.active span,
+.signup-link.active span {
+  border-bottom: 2px solid #ff6f00;
+}
+
+.password-form {
+  margin-bottom: -1rem;
+}
+
+.input-field input[type=email],
+.input-field input[type=password] {
+  font-size: 16px;
+  margin-bottom: .5em;  
+}
+
+.input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label {
+  color: #e0e0e0;
+}
+
+.input-field input[type=email]:focus,
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 0 0 #eee;
+}
+
+.input-field input[type=email].valid {
+  border-bottom: 1px solid #ff6f00;
+  box-shadow: 0 1px 0 0 #ff6f00;
+}
+
+#password-strength {
+  position: absolute;
+  top: 4px;
+  left: 16px;
+  font-size: 22px;
+}
+
+.help-text {
+  font-size: 13px;
+    text-align: right;
+}
+
+.card-action span:hover {
+  text-decoration: underline;
+}
+
+.forgot-password-row {
+  display: none;
+}
+.input-field.col label {
+    right: 0.75rem;
+}
+label {
+    font-size: 21px;
+}
+.amber-text.text-darken-4 {
+    color: #fff !important;
+}
+.amber-text.text-darken-4:hover{
+    text-decoration: none;
+    color: #ff6f00 !important;
+}
+    </style>
+    <script>
+        function showLogin() {
+  $(".login-link").addClass("active");
+  $(".signup-link").removeClass("active");
+  $(".btn-login").text("ورود");
+  $(".confirm-password-row").hide()
+  $(".forgot-password-row").show();
+}
+
+function showSignup() {
+  $(".login-link").removeClass("active");
+  $(".signup-link").addClass("active");
+  $(".btn-login").text("عضویت");
+  $(".confirm-password-row").show()
+  $(".forgot-password-row").hide();
+}
+
+function checkPasswordStrength() {
+  if (!$("#password").val() || $(".login-link").hasClass("active")) return;
+  };
+  const result = zxcvbn($("#password").val());
+  const warning = result.feedback.warning || "";
+  const suggestion = result.feedback.suggestions.join(", ").replace(/,/g, "") || "";
+  
+  $("#password-strength").html(emoji[result.score]);
+  $(".help-text").text(`سعی کنید پسوردتان بهتر شود !`);
+function init() {
+  $(".login-link").on("click", showLogin);
+  $(".signup-link").on("click", showSignup);
+  $("#password")
+    .on("input focus", checkPasswordStrength)
+    .on("blur", () => $("#password-strength, .help-text").empty());
+}
+
+$(init);
+    </script>
+
+</body>
+</html>
+</body>
+</html>
